@@ -1,0 +1,8 @@
+C:\Users\admin\source\repos\RPG\Engine\bin\Debug\netstandard1.4\Engine.deps.json
+C:\Users\admin\source\repos\RPG\Engine\bin\Debug\netstandard1.4\Engine.dll
+C:\Users\admin\source\repos\RPG\Engine\bin\Debug\netstandard1.4\Engine.pdb
+C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.csprojResolveAssemblyReference.cache
+C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.AssemblyInfo.cs
+C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.dll
+C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.pdb

@@ -1,0 +1,12 @@
+C:\Users\admin\source\repos\RPG\RPG\bin\Debug\RPG.exe.config
+C:\Users\admin\source\repos\RPG\RPG\bin\Debug\RPG.exe
+C:\Users\admin\source\repos\RPG\RPG\bin\Debug\RPG.pdb
+C:\Users\admin\source\repos\RPG\RPG\bin\Debug\Engine.dll
+C:\Users\admin\source\repos\RPG\RPG\bin\Debug\Engine.pdb
+C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.csprojResolveAssemblyReference.cache
+C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.Fokepernyo.resources
+C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.Properties.Resources.resources
+C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.csproj.GenerateResource.Cache
+C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.exe
+C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.pdb
