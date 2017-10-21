@@ -8,7 +8,7 @@ namespace Engine
     {
         public int MinSebzes { get; set; }
         public int MaxSebzes { get; set; }
-        public Fegyver(int id, string nev, string tobbesszam, int minSebzes, int maxSebzes) : base(id, nev)
+        public Fegyver(int id, string nev, string tobbesszam, int minSebzes, int maxSebzes) : base(id, nev, tobbesszam)
 {
             MinSebzes = minSebzes;
             MaxSebzes = maxSebzes;

@@ -12,7 +12,6 @@ namespace Engine
         public static readonly List<Ellenfel> Ellenfelek = new List<Ellenfel>();
         public static readonly List<Kuldetes> Kuldetesek = new List<Kuldetes>();
         public static readonly List<Hely> Helyek = new List<Hely>();
-
         public const int ITEM_ID_RUSTY_SWORD = 1;
         public const int ITEM_ID_RAT_TAIL = 2;
         public const int ITEM_ID_PIECE_OF_FUR = 3;
@@ -65,116 +64,116 @@ namespace Engine
 
         private static void EllenfelekLetrehozasa()
         {
-            Monster rat = new Monster(MONSTER_ID_RAT, "Rat", 5, 3, 10, 3, 3);
-            rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_RAT_TAIL), 75, false));
-            rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_PIECE_OF_FUR), 75, true));
+            Ellenfel rat = new Ellenfel(MONSTER_ID_RAT, "Rat", 5, 3, 10, 3, 3);
+            rat.MiketDobhat.Add(new ZsakmanyTargy(TargyIDAlapjan(ITEM_ID_RAT_TAIL), 75, false));
+            rat.MiketDobhat.Add(new ZsakmanyTargy(TargyIDAlapjan(ITEM_ID_PIECE_OF_FUR), 75, true));
 
-            Monster snake = new Monster(MONSTER_ID_SNAKE, "Snake", 5, 3, 10, 3, 3);
-            snake.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SNAKE_FANG), 75, false));
-            snake.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SNAKESKIN), 75, true));
+            Ellenfel snake = new Ellenfel(MONSTER_ID_SNAKE, "Snake", 5, 3, 10, 3, 3);
+            snake.MiketDobhat.Add(new ZsakmanyTargy(TargyIDAlapjan(ITEM_ID_SNAKE_FANG), 75, false));
+            snake.MiketDobhat.Add(new ZsakmanyTargy(TargyIDAlapjan(ITEM_ID_SNAKESKIN), 75, true));
 
-            Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "Giant spider", 20, 5, 40, 10, 10);
-            giantSpider.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SPIDER_FANG), 75, true));
-            giantSpider.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SPIDER_SILK), 25, false));
+            Ellenfel giantSpider = new Ellenfel(MONSTER_ID_GIANT_SPIDER, "Giant spider", 20, 5, 40, 10, 10);
+            giantSpider.MiketDobhat.Add(new ZsakmanyTargy(TargyIDAlapjan(ITEM_ID_SPIDER_FANG), 75, true));
+            giantSpider.MiketDobhat.Add(new ZsakmanyTargy(TargyIDAlapjan(ITEM_ID_SPIDER_SILK), 25, false));
 
-            Monsters.Add(rat);
-            Monsters.Add(snake);
-            Monsters.Add(giantSpider);
+            Ellenfelek.Add(rat);
+            Ellenfelek.Add(snake);
+            Ellenfelek.Add(giantSpider);
         }
 
         private static void KuldetesekLetrehozasa()
         {
-            Quest clearAlchemistGarden =
-                new Quest(
+            Kuldetes clearAlchemistGarden =
+                new Kuldetes(
                     QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
                     "Clear the alchemist's garden",
                     "Kill rats in the alchemist's garden and bring back 3 rat tails. You will receive a healing potion and 10 gold pieces.", 20, 10);
 
-            clearAlchemistGarden.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_RAT_TAIL), 3));
+            clearAlchemistGarden.KuldeteshezSzuksegesTargyak.Add(new KuldeteshezTargy(TargyIDAlapjan(ITEM_ID_RAT_TAIL), 3));
 
-            clearAlchemistGarden.RewardItem = ItemByID(ITEM_ID_HEALING_POTION);
+            clearAlchemistGarden.ErtekItem = TargyIDAlapjan(ITEM_ID_HEALING_POTION);
 
-            Quest clearFarmersField =
-                new Quest(
+            Kuldetes clearFarmersField =
+                new Kuldetes(
                     QUEST_ID_CLEAR_FARMERS_FIELD,
                     "Clear the farmer's field",
                     "Kill snakes in the farmer's field and bring back 3 snake fangs. You will receive an adventurer's pass and 20 gold pieces.", 20, 20);
 
-            clearFarmersField.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_SNAKE_FANG), 3));
+            clearFarmersField.KuldeteshezSzuksegesTargyak.Add(new KuldeteshezTargy(TargyIDAlapjan(ITEM_ID_SNAKE_FANG), 3));
 
-            clearFarmersField.RewardItem = ItemByID(ITEM_ID_ADVENTURER_PASS);
+            clearFarmersField.ErtekItem = TargyIDAlapjan(ITEM_ID_ADVENTURER_PASS);
 
-            Quests.Add(clearAlchemistGarden);
-            Quests.Add(clearFarmersField);
+            Kuldetesek.Add(clearAlchemistGarden);
+            Kuldetesek.Add(clearFarmersField);
         }
 
         private static void HelyekLetrehozasa()
         {
             // Create each location
-            Location home = new Location(LOCATION_ID_HOME, "Home", "Your house. You really need to clean up the place.");
+            Hely home = new Hely(LOCATION_ID_HOME, "Home", "Your house. You really need to clean up the place.");
 
-            Location townSquare = new Location(LOCATION_ID_TOWN_SQUARE, "Town square", "You see a fountain.");
+            Hely townSquare = new Hely(LOCATION_ID_TOWN_SQUARE, "Town square", "You see a fountain.");
 
-            Location alchemistHut = new Location(LOCATION_ID_ALCHEMIST_HUT, "Alchemist's hut", "There are many strange plants on the shelves.");
-            alchemistHut.QuestAvailableHere = QuestByID(QUEST_ID_CLEAR_ALCHEMIST_GARDEN);
+            Hely alchemistHut = new Hely(LOCATION_ID_ALCHEMIST_HUT, "Alchemist's hut", "There are many strange plants on the shelves.");
+            alchemistHut.KuldetesVanItt = KuldetesIDAlapjan(QUEST_ID_CLEAR_ALCHEMIST_GARDEN);
 
-            Location alchemistsGarden = new Location(LOCATION_ID_ALCHEMISTS_GARDEN, "Alchemist's garden", "Many plants are growing here.");
-            alchemistsGarden.MonsterLivingHere = MonsterByID(MONSTER_ID_RAT);
+            Hely alchemistsGarden = new Hely(LOCATION_ID_ALCHEMISTS_GARDEN, "Alchemist's garden", "Many plants are growing here.");
+            alchemistsGarden.EllenfelVanItt = EllenfelIDAlapjan(MONSTER_ID_RAT);
 
-            Location farmhouse = new Location(LOCATION_ID_FARMHOUSE, "Farmhouse", "There is a small farmhouse, with a farmer in front.");
-            farmhouse.QuestAvailableHere = QuestByID(QUEST_ID_CLEAR_FARMERS_FIELD);
+            Hely farmhouse = new Hely(LOCATION_ID_FARMHOUSE, "Farmhouse", "There is a small farmhouse, with a farmer in front.");
+            farmhouse.KuldetesVanItt = KuldetesIDAlapjan(QUEST_ID_CLEAR_FARMERS_FIELD);
 
-            Location farmersField = new Location(LOCATION_ID_FARM_FIELD, "Farmer's field", "You see rows of vegetables growing here.");
-            farmersField.MonsterLivingHere = MonsterByID(MONSTER_ID_SNAKE);
+            Hely farmersField = new Hely(LOCATION_ID_FARM_FIELD, "Farmer's field", "You see rows of vegetables growing here.");
+            farmersField.EllenfelVanItt = EllenfelIDAlapjan(MONSTER_ID_SNAKE);
 
-            Location guardPost = new Location(LOCATION_ID_GUARD_POST, "Guard post", "There is a large, tough-looking guard here.", ItemByID(ITEM_ID_ADVENTURER_PASS));
+            Hely guardPost = new Hely(LOCATION_ID_GUARD_POST, "Guard post", "There is a large, tough-looking guard here.", TargyIDAlapjan(ITEM_ID_ADVENTURER_PASS));
 
-            Location bridge = new Location(LOCATION_ID_BRIDGE, "Bridge", "A stone bridge crosses a wide river.");
+            Hely bridge = new Hely(LOCATION_ID_BRIDGE, "Bridge", "A stone bridge crosses a wide river.");
 
-            Location spiderField = new Location(LOCATION_ID_SPIDER_FIELD, "Forest", "You see spider webs covering covering the trees in this forest.");
-            spiderField.MonsterLivingHere = MonsterByID(MONSTER_ID_GIANT_SPIDER);
+            Hely spiderField = new Hely(LOCATION_ID_SPIDER_FIELD, "Forest", "You see spider webs covering covering the trees in this forest.");
+            spiderField.EllenfelVanItt = EllenfelIDAlapjan(MONSTER_ID_GIANT_SPIDER);
 
             // Link the locations together
-            home.LocationToNorth = townSquare;
+            home.HelyEszakra = townSquare;
 
-            townSquare.LocationToNorth = alchemistHut;
-            townSquare.LocationToSouth = home;
-            townSquare.LocationToEast = guardPost;
-            townSquare.LocationToWest = farmhouse;
+            townSquare.HelyEszakra = alchemistHut;
+            townSquare.HelyDelre = home;
+            townSquare.HelyKeletre = guardPost;
+            townSquare.HelyNyugatra = farmhouse;
 
-            farmhouse.LocationToEast = townSquare;
-            farmhouse.LocationToWest = farmersField;
+            farmhouse.HelyKeletre = townSquare;
+            farmhouse.HelyNyugatra = farmersField;
 
-            farmersField.LocationToEast = farmhouse;
+            farmersField.HelyKeletre = farmhouse;
 
-            alchemistHut.LocationToSouth = townSquare;
-            alchemistHut.LocationToNorth = alchemistsGarden;
+            alchemistHut.HelyDelre = townSquare;
+            alchemistHut.HelyEszakra = alchemistsGarden;
 
-            alchemistsGarden.LocationToSouth = alchemistHut;
+            alchemistsGarden.HelyDelre = alchemistHut;
 
-            guardPost.LocationToEast = bridge;
-            guardPost.LocationToWest = townSquare;
+            guardPost.HelyKeletre = bridge;
+            guardPost.HelyNyugatra = townSquare;
 
-            bridge.LocationToWest = guardPost;
-            bridge.LocationToEast = spiderField;
+            bridge.HelyNyugatra = guardPost;
+            bridge.HelyKeletre = spiderField;
 
-            spiderField.LocationToWest = bridge;
+            spiderField.HelyNyugatra = bridge;
 
             // Add the locations to the static list
-            Locations.Add(home);
-            Locations.Add(townSquare);
-            Locations.Add(guardPost);
-            Locations.Add(alchemistHut);
-            Locations.Add(alchemistsGarden);
-            Locations.Add(farmhouse);
-            Locations.Add(farmersField);
-            Locations.Add(bridge);
-            Locations.Add(spiderField);
+            Helyek.Add(home);
+            Helyek.Add(townSquare);
+            Helyek.Add(guardPost);
+            Helyek.Add(alchemistHut);
+            Helyek.Add(alchemistsGarden);
+            Helyek.Add(farmhouse);
+            Helyek.Add(farmersField);
+            Helyek.Add(bridge);
+            Helyek.Add(spiderField);
         }
 
-        public static Item ItemByID(int id)
+        public static Item TargyIDAlapjan(int id)
         {
-            foreach (Item item in Items)
+            foreach (Item item in Targyak)
             {
                 if (item.ID == id)
                 {
@@ -185,9 +184,9 @@ namespace Engine
             return null;
         }
 
-        public static Monster MonsterByID(int id)
+        public static Ellenfel EllenfelIDAlapjan(int id)
         {
-            foreach (Monster monster in Monsters)
+            foreach (Ellenfel monster in Ellenfelek)
             {
                 if (monster.ID == id)
                 {
@@ -198,9 +197,9 @@ namespace Engine
             return null;
         }
 
-        public static Quest QuestByID(int id)
+        public static Kuldetes KuldetesIDAlapjan(int id)
         {
-            foreach (Quest quest in Quests)
+            foreach (Kuldetes quest in Kuldetesek)
             {
                 if (quest.ID == id)
                 {
@@ -211,9 +210,9 @@ namespace Engine
             return null;
         }
 
-        public static Location LocationByID(int id)
+        public static Hely HelyIDAlapjan(int id)
         {
-            foreach (Location location in Locations)
+            foreach (Hely location in Helyek)
             {
                 if (location.ID == id)
                 {

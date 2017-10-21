@@ -8,12 +8,12 @@ namespace Engine
 {
     public class TaskaItem
     {
-        public Item Details { get; set; }
+        public Item Reszletek { get; set; }
         public int Mennyiseg { get; set; }
 
         public TaskaItem(Item leiras, int mennyiseg)
         {
-            Details = leiras;
+            Reszletek = leiras;
             Mennyiseg = mennyiseg;
         }
     }
