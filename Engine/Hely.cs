@@ -10,7 +10,7 @@ namespace Engine
         public string Nev { get; set; }
         public string Leiras { get; set; }
 
-        public Item ItemABelepeshez { get; set; }
+        public Targy ItemABelepeshez { get; set; }
         public Kuldetes KuldetesVanItt { get; set; }
         public Ellenfel EllenfelVanItt { get; set; }
         public Hely HelyEszakra { get; set; }
@@ -19,7 +19,7 @@ namespace Engine
         public Hely HelyNyugatra { get; set; }
 
         public Hely(int id, string nev, string leiras, 
-            Item itemABelepeshez = null,
+            Targy itemABelepeshez = null,
             Kuldetes kuldetesVanItt = null,
             Ellenfel ellenfelVanItt = null)
         {

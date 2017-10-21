@@ -9,7 +9,7 @@ namespace Engine
         public int Arany { get; set; }
         public int XP { get; set; }
         public int Szint { get; set; }
-        public List<TaskaItem> Taska { get; set; }
+        public List<TaskaTargy> Taska { get; set; }
         public List<JatekosKuldetes> Kuldetesek { get; set; }
 
         public Hely AktualisHely { get; set; }
@@ -19,7 +19,7 @@ namespace Engine
             Arany = arany;
             XP = xp;
             Szint = szint;
-            Taska = new List<TaskaItem>();
+            Taska = new List<TaskaTargy>();
             Kuldetesek = new List<JatekosKuldetes>();
         }
         public bool HasRequiredItemToEnterThisLocation(Hely location)
@@ -31,7 +31,7 @@ namespace Engine
             }
 
             // See if the player has the required item in their inventory
-            foreach (TaskaItem ii in Taska)
+            foreach (TaskaTargy ii in Taska)
             {
                 if (ii.Reszletek.ID == location.ItemABelepeshez.ID)
                 {
@@ -78,7 +78,7 @@ namespace Engine
                 bool foundItemInPlayersInventory = false;
 
                 // Check each item in the player's inventory, to see if they have it, and enough of it
-                foreach (TaskaItem ii in Taska)
+                foreach (TaskaTargy ii in Taska)
                 {
                     if (ii.Reszletek.ID == qci.Reszletek.ID) // The player has the item in their inventory
                     {
@@ -106,7 +106,7 @@ namespace Engine
         {
             foreach (KuldeteshezTargy qci in quest.KuldeteshezSzuksegesTargyak)
             {
-                foreach (TaskaItem ii in Taska)
+                foreach (TaskaTargy ii in Taska)
                 {
                     if (ii.Reszletek.ID == qci.Reszletek.ID)
                     {
@@ -118,9 +118,9 @@ namespace Engine
             }
         }
 
-        public void AddItemToInventory(Item itemToAdd)
+        public void AddItemToInventory(Targy itemToAdd)
         {
-            foreach (TaskaItem ii in Taska)
+            foreach (TaskaTargy ii in Taska)
             {
                 if (ii.Reszletek.ID == itemToAdd.ID)
                 {
@@ -132,7 +132,7 @@ namespace Engine
             }
 
             // They didn't have the item, so add it to their inventory, with a quantity of 1
-            Taska.Add(new TaskaItem(itemToAdd, 1));
+            Taska.Add(new TaskaTargy(itemToAdd, 1));
         }
 
         public void MarkQuestCompleted(Kuldetes quest)

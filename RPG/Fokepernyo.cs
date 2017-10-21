@@ -22,7 +22,7 @@ namespace RPG
             // a játékos a kezdőhelyre kerül
             Mozog(Vilag.HelyIDAlapjan(Vilag.LOCATION_ID_HOME));
             // adunk neki egy kardot
-            jatekos.Taska.Add(new TaskaItem(Vilag.TargyIDAlapjan(Vilag.ITEM_ID_RUSTY_SWORD),1));
+            jatekos.Taska.Add(new TaskaTargy(Vilag.TargyIDAlapjan(Vilag.ITEM_ID_RUSTY_SWORD),1));
 
             lblHitPoints.Text = jatekos.AktualisHP.ToString();
             lblArany.Text = jatekos.Arany.ToString();
@@ -203,7 +203,7 @@ namespace RPG
 
             dgvInventory.Rows.Clear();
 
-            foreach (TaskaItem TaskaItem in jatekos.Taska)
+            foreach (TaskaTargy TaskaItem in jatekos.Taska)
             {
                 if (TaskaItem.Mennyiseg > 0)
                 {
@@ -233,7 +233,7 @@ namespace RPG
         {
             List<Fegyver> weapons = new List<Fegyver>();
 
-            foreach (TaskaItem TaskaItem in jatekos.Taska)
+            foreach (TaskaTargy TaskaItem in jatekos.Taska)
             {
                 if (TaskaItem.Reszletek is Fegyver)
                 {
@@ -264,7 +264,7 @@ namespace RPG
         {
             List<Gyogyital> healingPotions = new List<Gyogyital>();
 
-            foreach (TaskaItem TaskaItem in jatekos.Taska)
+            foreach (TaskaTargy TaskaItem in jatekos.Taska)
             {
                 if (TaskaItem.Reszletek is Gyogyital)
                 {

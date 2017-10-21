@@ -11,7 +11,7 @@ namespace Engine
         public string Leiras { get; set; }
         public int ErtekXP { get; set; }
         public int ErtekArany { get; set; }
-        public Item ErtekItem { get; set; }
+        public Targy ErtekItem { get; set; }
         public List<KuldeteshezTargy> KuldeteshezSzuksegesTargyak { get; set; }
         public Kuldetes(int id, string nev, string leiras,
 int ertekXP, int ertekArany)

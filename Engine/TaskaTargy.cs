@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    public class TaskaItem
+    public class TaskaTargy
     {
-        public Item Reszletek { get; set; }
+        public Targy Reszletek { get; set; }
         public int Mennyiseg { get; set; }
 
-        public TaskaItem(Item leiras, int mennyiseg)
+        public TaskaTargy(Targy leiras, int mennyiseg)
         {
             Reszletek = leiras;
             Mennyiseg = mennyiseg;

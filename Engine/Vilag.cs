@@ -8,7 +8,7 @@ namespace Engine
 {
     public static class Vilag
     {
-        public static readonly List<Item> Targyak = new List<Item>();
+        public static readonly List<Targy> Targyak = new List<Targy>();
         public static readonly List<Ellenfel> Ellenfelek = new List<Ellenfel>();
         public static readonly List<Kuldetes> Kuldetesek = new List<Kuldetes>();
         public static readonly List<Hely> Helyek = new List<Hely>();
@@ -50,16 +50,16 @@ namespace Engine
 
         private static void TargyakLetrehozasa()
         {
-            Targyak.Add(new Fegyver(ITEM_ID_RUSTY_SWORD, "Rusty sword", "Rusty swords", 0, 5));
-            Targyak.Add(new Item(ITEM_ID_RAT_TAIL, "Rat tail", "Rat tails"));
-            Targyak.Add(new Item(ITEM_ID_PIECE_OF_FUR, "Piece of fur", "Pieces of fur"));
-            Targyak.Add(new Item(ITEM_ID_SNAKE_FANG, "Snake fang", "Snake fangs"));
-            Targyak.Add(new Item(ITEM_ID_SNAKESKIN, "Snakeskin", "Snakeskins"));
-            Targyak.Add(new Fegyver(ITEM_ID_CLUB, "Club", "Clubs", 3, 10));
-            Targyak.Add(new Gyogyital(ITEM_ID_HEALING_POTION, "Healing potion", "Healing potions", 5));
-            Targyak.Add(new Item(ITEM_ID_SPIDER_FANG, "Spider fang", "Spider fangs"));
-            Targyak.Add(new Item(ITEM_ID_SPIDER_SILK, "Spider silk", "Spider silks"));
-            Targyak.Add(new Item(ITEM_ID_ADVENTURER_PASS, "Adventurer pass", "Adventurer passes"));
+            Targyak.Add(new Fegyver(ITEM_ID_RUSTY_SWORD, "Rusty sword", 0, 5));
+            Targyak.Add(new Targy(ITEM_ID_RAT_TAIL, "Rat tail"));
+            Targyak.Add(new Targy(ITEM_ID_PIECE_OF_FUR, "Piece of fur"));
+            Targyak.Add(new Targy(ITEM_ID_SNAKE_FANG, "Snake fang"));
+            Targyak.Add(new Targy(ITEM_ID_SNAKESKIN, "Snakeskin"));
+            Targyak.Add(new Fegyver(ITEM_ID_CLUB, "Club", 3, 10));
+            Targyak.Add(new Gyogyital(ITEM_ID_HEALING_POTION, "Healing potion", 5));
+            Targyak.Add(new Targy(ITEM_ID_SPIDER_FANG, "Spider fang"));
+            Targyak.Add(new Targy(ITEM_ID_SPIDER_SILK, "Spider silk"));
+            Targyak.Add(new Targy(ITEM_ID_ADVENTURER_PASS, "Adventurer pass"));
         }
 
         private static void EllenfelekLetrehozasa()
@@ -171,9 +171,9 @@ namespace Engine
             Helyek.Add(spiderField);
         }
 
-        public static Item TargyIDAlapjan(int id)
+        public static Targy TargyIDAlapjan(int id)
         {
-            foreach (Item item in Targyak)
+            foreach (Targy item in Targyak)
             {
                 if (item.ID == id)
                 {

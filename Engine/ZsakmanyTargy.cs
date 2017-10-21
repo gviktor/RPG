@@ -8,11 +8,11 @@ namespace Engine
 {
     public class ZsakmanyTargy
     {
-        public Item Reszletek { get; set; }
+        public Targy Reszletek { get; set; }
         public int SzazalekbanEsik { get; set; }
         public bool AlapertelmezettE { get; set; }
 
-        public ZsakmanyTargy(Item reszletek, int szazalekbanEsik, bool alapertelmezettE)
+        public ZsakmanyTargy(Targy reszletek, int szazalekbanEsik, bool alapertelmezettE)
         {
             Reszletek = reszletek;
             SzazalekbanEsik = szazalekbanEsik;

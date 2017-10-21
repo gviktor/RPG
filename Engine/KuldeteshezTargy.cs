@@ -8,10 +8,10 @@ namespace Engine
 {
     public class KuldeteshezTargy
     {
-        public Item Reszletek { get; set; }
+        public Targy Reszletek { get; set; }
         public int Mennyiseg { get; set; }
 
-        public KuldeteshezTargy(Item reszletek, int mennyiseg)
+        public KuldeteshezTargy(Targy reszletek, int mennyiseg)
         {
             Reszletek = reszletek;
             Mennyiseg = mennyiseg;

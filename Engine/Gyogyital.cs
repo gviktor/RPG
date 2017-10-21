@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Engine
 {
-    public class Gyogyital : Item
+    public class Gyogyital : Targy
     {
         public int MennyitGyogyit { get; set; }
-        public Gyogyital(int id, string nev, string tobbesSzam, int mennyitGyogyit) : base(id, nev, tobbesSzam)
+        public Gyogyital(int id, string nev, int mennyitGyogyit) : base(id, nev)
         {
             MennyitGyogyit = mennyitGyogyit;
         }
