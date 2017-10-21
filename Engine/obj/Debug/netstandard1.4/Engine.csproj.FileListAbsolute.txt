@@ -6,3 +6,11 @@ C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.csproj.Co
 C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.AssemblyInfo.cs
 C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.dll
 C:\Users\admin\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.pdb
+c:\Users\i3\source\repos\RPG\Engine\bin\Debug\netstandard1.4\Engine.deps.json
+c:\Users\i3\source\repos\RPG\Engine\bin\Debug\netstandard1.4\Engine.dll
+c:\Users\i3\source\repos\RPG\Engine\bin\Debug\netstandard1.4\Engine.pdb
+c:\Users\i3\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.csprojResolveAssemblyReference.cache
+c:\Users\i3\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.csproj.CoreCompileInputs.cache
+c:\Users\i3\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.AssemblyInfo.cs
+c:\Users\i3\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.dll
+c:\Users\i3\source\repos\RPG\Engine\obj\Debug\netstandard1.4\Engine.pdb

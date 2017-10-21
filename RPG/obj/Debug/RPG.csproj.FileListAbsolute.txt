@@ -10,3 +10,15 @@ C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.csproj.GenerateResource.Cache
 C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.csproj.CoreCompileInputs.cache
 C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.exe
 C:\Users\admin\source\repos\RPG\RPG\obj\Debug\RPG.pdb
+c:\Users\i3\source\repos\RPG\RPG\bin\Debug\RPG.exe.config
+c:\Users\i3\source\repos\RPG\RPG\bin\Debug\RPG.exe
+c:\Users\i3\source\repos\RPG\RPG\bin\Debug\RPG.pdb
+c:\Users\i3\source\repos\RPG\RPG\bin\Debug\Engine.dll
+c:\Users\i3\source\repos\RPG\RPG\bin\Debug\Engine.pdb
+c:\Users\i3\source\repos\RPG\RPG\obj\Debug\RPG.csprojResolveAssemblyReference.cache
+c:\Users\i3\source\repos\RPG\RPG\obj\Debug\RPG.Fokepernyo.resources
+c:\Users\i3\source\repos\RPG\RPG\obj\Debug\RPG.Properties.Resources.resources
+c:\Users\i3\source\repos\RPG\RPG\obj\Debug\RPG.csproj.GenerateResource.Cache
+c:\Users\i3\source\repos\RPG\RPG\obj\Debug\RPG.csproj.CoreCompileInputs.cache
+c:\Users\i3\source\repos\RPG\RPG\obj\Debug\RPG.exe
+c:\Users\i3\source\repos\RPG\RPG\obj\Debug\RPG.pdb

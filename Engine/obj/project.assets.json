@@ -3703,7 +3703,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {}
+    "C:\\Users\\i3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3711,14 +3711,14 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\source\\repos\\RPG\\Engine\\Engine.csproj",
+      "projectUniqueName": "c:\\Users\\i3\\source\\repos\\RPG\\Engine\\Engine.csproj",
       "projectName": "Engine",
-      "projectPath": "C:\\Users\\admin\\source\\repos\\RPG\\Engine\\Engine.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\source\\repos\\RPG\\Engine\\obj\\",
+      "projectPath": "c:\\Users\\i3\\source\\repos\\RPG\\Engine\\Engine.csproj",
+      "packagesPath": "C:\\Users\\i3\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\i3\\source\\repos\\RPG\\Engine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\i3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
