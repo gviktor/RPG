@@ -253,7 +253,7 @@ namespace RPG
             else
             {
                 cboWeapons.DataSource = weapons;
-                cboWeapons.DisplayMember = "Name";
+                cboWeapons.DisplayMember = "Nev";
                 cboWeapons.ValueMember = "ID";
 
                 cboWeapons.SelectedIndex = 0;
@@ -284,7 +284,7 @@ namespace RPG
             else
             {
                 cboPotions.DataSource = healingPotions;
-                cboPotions.DisplayMember = "Name";
+                cboPotions.DisplayMember = "Nev";
                 cboPotions.ValueMember = "ID";
 
                 cboPotions.SelectedIndex = 0;
@@ -294,12 +294,166 @@ namespace RPG
 
         private void btnUseWeapon_Click(object sender, EventArgs e)
         {
+            // Get the currently selected weapon from the cboWeapons ComboBox
+            Fegyver currentWeapon = (Fegyver)cboWeapons.SelectedItem;
 
+            // Determine the amount of damage to do to the monster
+            int damageToMonster = VeletlenSzam.NumberBetween(currentWeapon.MinSebzes, currentWeapon.MaxSebzes);
+
+            // Apply the damage to the monster's CurrentHitPoints
+            ellenfel.AktualisHP -= damageToMonster;
+
+            // Display message
+            rtbMessages.Text += "You hit the " + ellenfel.Nev + " for " + damageToMonster.ToString() + " points." + Environment.NewLine;
+
+            // Check if the monster is dead
+            if (ellenfel.AktualisHP <= 0)
+            {
+                // Monster is dead
+                rtbMessages.Text += Environment.NewLine;
+                rtbMessages.Text += "You defeated the " + ellenfel.Nev + Environment.NewLine;
+
+                // Give player experience points for killing the monster
+                jatekos.XP += ellenfel.ErtekXP;
+                rtbMessages.Text += "You receive " + ellenfel.ErtekXP.ToString() + " experience points" + Environment.NewLine;
+
+                // Give player gold for killing the monster 
+                jatekos.Arany += ellenfel.ErtekArany;
+                rtbMessages.Text += "You receive " + ellenfel.ErtekArany.ToString() + " gold" + Environment.NewLine;
+
+                // Get random loot items from the monster
+                List<TaskaTargy> lootedItems = new List<TaskaTargy>();
+
+                // Add items to the lootedItems list, comparing a random number to the drop percentage
+                foreach (ZsakmanyTargy lootItem in ellenfel.MiketDobhat)
+                {
+                    if (VeletlenSzam.NumberBetween(1, 100) <= lootItem.SzazalekbanEsik)
+                    {
+                        lootedItems.Add(new TaskaTargy(lootItem.Reszletek, 1));
+                    }
+                }
+
+                // If no items were randomly selected, then add the default loot item(s).
+                if (lootedItems.Count == 0)
+                {
+                    foreach (ZsakmanyTargy lootItem in ellenfel.MiketDobhat)
+                    {
+                        if (lootItem.AlapertelmezettE)
+                        {
+                            lootedItems.Add(new TaskaTargy(lootItem.Reszletek, 1));
+                        }
+                    }
+                }
+
+                // Add the looted items to the player's inventory
+                foreach (TaskaTargy TaskaTargy in lootedItems)
+                {
+                    jatekos.AddItemToInventory(TaskaTargy.Reszletek);
+
+                    if (TaskaTargy.Mennyiseg == 1)
+                    {
+                        rtbMessages.Text += "You loot " + TaskaTargy.Mennyiseg.ToString() + " " + TaskaTargy.Reszletek.Nev + Environment.NewLine;
+                    }
+                    else
+                    {
+                        rtbMessages.Text += "You loot " + TaskaTargy.Mennyiseg.ToString() + " " + TaskaTargy.Reszletek.Nev + Environment.NewLine;
+                    }
+                }
+
+                // Refresh player information and inventory controls
+                lblHitPoints.Text = jatekos.AktualisHP.ToString();
+                lblArany.Text = jatekos.Arany.ToString();
+                lblXP.Text = jatekos.XP.ToString();
+                lblSzint.Text = jatekos.Szint.ToString();
+
+                UpdateInventoryListInUI();
+                UpdateWeaponListInUI();
+                UpdatePotionListInUI();
+
+                // Add a blank line to the messages box, just for appearance.
+                rtbMessages.Text += Environment.NewLine;
+
+                // Move player to current location (to heal player and create a new monster to fight)
+                Mozog(jatekos.AktualisHely);
+            }
+            else
+            {
+                // Monster is still alive
+
+                // Determine the amount of damage the monster does to the player
+                int damageToPlayer = VeletlenSzam.NumberBetween(0, ellenfel.MaxSebzes);
+
+                // Display message
+                rtbMessages.Text += "The " + ellenfel.Nev + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
+
+                // Subtract damage from player
+                jatekos.AktualisHP -= damageToPlayer;
+
+                // Refresh player data in UI
+                lblHitPoints.Text = jatekos.AktualisHP.ToString();
+
+                if (jatekos.AktualisHP <= 0)
+                {
+                    // Display message
+                    rtbMessages.Text += "The " + ellenfel.Nev + " killed you." + Environment.NewLine;
+
+                    // Move player to "Home"
+                    Mozog(Vilag.HelyIDAlapjan(Vilag.LOCATION_ID_HOME));
+                }
+            }
         }
 
         private void btnUsePotion_Click(object sender, EventArgs e)
         {
+            // Get the currently selected potion from the combobox
+            Gyogyital potion = (Gyogyital)cboPotions.SelectedItem;
 
+            // Add healing amount to the player's current hit points
+            jatekos.AktualisHP = (jatekos.AktualisHP + potion.MennyitGyogyit);
+
+            // CurrentHitPoints cannot exceed player's MaximumHitPoints
+            if (jatekos.AktualisHP > jatekos.MaxHP)
+            {
+                jatekos.AktualisHP = jatekos.MaxHP;
+            }
+
+            // Remove the potion from the player's inventory
+            foreach (TaskaTargy ii in jatekos.Taska)
+            {
+                if (ii.Reszletek.ID == potion.ID)
+                {
+                    ii.Mennyiseg--;
+                    break;
+                }
+            }
+
+            // Display message
+            rtbMessages.Text += "You drink a " + potion.Nev + Environment.NewLine;
+
+            // Monster gets their turn to attack
+
+            // Determine the amount of damage the monster does to the player
+            int damageToPlayer = VeletlenSzam.NumberBetween(0, ellenfel.MaxSebzes);
+
+            // Display message
+            rtbMessages.Text += "The " + ellenfel.Nev + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
+
+            // Subtract damage from player
+            jatekos.AktualisHP -= damageToPlayer;
+
+            if (jatekos.AktualisHP <= 0)
+            {
+                // Display message
+                rtbMessages.Text += "The " + ellenfel.Nev + " killed you." + Environment.NewLine;
+
+                // Move player to "Home"
+                Mozog(Vilag.HelyIDAlapjan(Vilag.LOCATION_ID_HOME));
+            }
+
+            // Refresh player data in UI
+            lblHitPoints.Text = jatekos.AktualisHP.ToString();
+            UpdateInventoryListInUI();
+            UpdatePotionListInUI();
         }
     }
 }

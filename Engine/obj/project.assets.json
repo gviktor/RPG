@@ -3711,11 +3711,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "c:\\Users\\i3\\source\\repos\\RPG\\Engine\\Engine.csproj",
+      "projectUniqueName": "C:\\Users\\i3\\source\\repos\\RPG\\Engine\\Engine.csproj",
       "projectName": "Engine",
-      "projectPath": "c:\\Users\\i3\\source\\repos\\RPG\\Engine\\Engine.csproj",
+      "projectPath": "C:\\Users\\i3\\source\\repos\\RPG\\Engine\\Engine.csproj",
       "packagesPath": "C:\\Users\\i3\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\i3\\source\\repos\\RPG\\Engine\\obj\\",
+      "outputPath": "C:\\Users\\i3\\source\\repos\\RPG\\Engine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\i3\\AppData\\Roaming\\NuGet\\NuGet.Config",
